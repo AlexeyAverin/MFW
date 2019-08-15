@@ -2,17 +2,31 @@
 
 
 
-* { margin: 0; padding: 0; }
+:root{
+    --height-header: 85px;
+    --height-contacts: 50px;
+    --width-area: 1024px;
+    --chto-to: 0px;
+    --width-logotip: 85px;
+    --width-company: 250px;
+    --width-menu-item: 180px;
+    --color-background-menu: rgba(143, 93, 46, 1);
+    --color-text-menu: rgba(254, 164, 32, 1);
+}
 
+
+* { margin: 0; padding: 0; }
 /*Header*/
-header { width: 1023px; height: 100px; margin: 0 auto; background-color: rgba(254, 0, 0, 0.2); }
-div.logotip { width: 100px; height: 100px; font-size: 30px; text-align: center; line-height: 100px; float: left; background-color: rgba(254, 0, 0, 0.2); }
-div.company { width: 250px; height: 100px; text-align: center; line-height: 100px; float: left; background-color: rgba(254, 0, 0, 0.3); }
-div.menu { width: calc(1023px - 350px); height: 100px; float: left; background-color: rgba(254, 0, 0, 0.2); }
-div.menu a { width: 150px; height: 100px; float: right; text-align: center; line-height: 100px; display: inline-block; text-decoration: none; background-color: rgba(254, 0, 0, 0.3); }
-div.menu a:hover { background-color: rgba(254, 0, 0, 0.2); }
+header { width: var(--width-area); height: var(--height-header); margin: 0 auto; /*background-color: rgba(150, 75, 0, 1);*/ }
+div.logotip { width: 85px; height: 100%; color: var(--color-text-menu); font-size: 30px; text-align: center; line-height: var(--height-header); float: left; background-color: var(--color-background-menu); }
+div.company { width: var(--width-company); height: 100%; font-size: 19px; color: var(--color-text-menu); text-align: center; line-height: var(--height-header); float: left; background-color: var(--color-background-menu); }
+div.menu { width: calc(var(--width-area) - (var(--width-company) + var(--width-logotip))); height: 100%; color: var(--color-text-menu); float: left; background-color: var(--color-background-menu); }
+div.menu a { width: var(--width-menu-item); height: 100%; font-size: 19px; color: var(--color-text-menu); border-left: 1px solid rgba(254, 164, 32, 1); float: right; text-align: center; line-height: var(--height-header); display: inline-block; text-decoration: none; background-color: var(--color-background-menu); }
+div.menu a:hover { background-color: var(--color-text-menu); color: var(--color-background-menu); }
+
 /*Contents*/
-div.contents { width: 1023px; height: calc( 100vh - 200px ); margin: 0 auto; background-color: rgba(254, 127, 0, 0.2); }
+div.contents { width: 1023px; height: calc( 100vh - (var(--height-header) + var(--height-contacts)) ); margin: 0 auto; background-color: rgba(254, 127, 0, 0.2); }
+
 
 /*Auth*/
 div.containerAuth                   { width: 275px; height: 125px; box-shadow: 0 0 10px rgb(150, 150, 150); box-sizing: border-box; padding: 13px; margin: calc(50vh - 164px) auto; border-radius: 13px; border: 1px solid rgb(150, 150, 150); background-color: rgb(240, 240, 240); }
@@ -26,5 +40,5 @@ div.containerRegistr label  { width: 150px; margin-left: 27px; display: inline-b
 div.containerRegiste input  { width: 100px; }
 
 /*Contacts*/
-div.contacts { width: 1023px; height: 100px; margin: 0 auto; line-height: 100px; background-color: rgba(254, 254, 0, 0.2); }
-div.contactsItems { width: 341px; height: 100%; text-align: center; float: left; background-color: white;}
+div.contacts { width: var(--width-area); height: var(--height-contacts); margin: 0 auto; line-height: var(--height-contacts); background-color: rgba(254, 254, 0, 0.2); }
+div.contactsItems { width: calc(var(--width-area) / 3); height: 100%; text-align: center; float: left; background-color: white;}
