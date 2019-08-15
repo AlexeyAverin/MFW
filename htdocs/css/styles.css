@@ -40,5 +40,5 @@ div.containerRegistr label  { width: 150px; margin-left: 27px; display: inline-b
 div.containerRegiste input  { width: 100px; }
 
 /*Contacts*/
-div.contacts { width: var(--width-area); height: var(--height-contacts); margin: 0 auto; line-height: var(--height-contacts); background-color: rgba(254, 254, 0, 0.2); }
-div.contactsItems { width: calc(var(--width-area) / 3); height: 100%; text-align: center; float: left; background-color: white;}
+div.contacts { width: var(--width-area); height: var(--height-contacts); margin: 0 auto; line-height: var(--height-contacts); color: var(--color-text-menu); background-color: var(--color-background-menu); }
+div.contactsItems { width: calc(var(--width-area) / 3); height: 100%; text-align: center; float: left; color: var(--color-text-menu); background-color: var(--color-background-menu);}
