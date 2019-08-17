@@ -3,7 +3,7 @@
 
 
 class FrontController {
-    protected $_controller, $_action, $_params, $_body;
+    protected $_controller, $_action, $_params, $_nav, $_body;
     static $_instance;
 
     public static function getInstance() {
@@ -18,10 +18,10 @@ class FrontController {
         $request = $_SERVER['REQUEST_URI'];
         $splits = explode('/', trim($request, '/'));
         //Controler 31:06
-        $this->_controller = !empty($splits[0]) ? ucfirst($splits[0]).'Controller' : 'IndexController';
+        $this->_controller = !empty($splits[0]) ? ucfirst($splits[0]).'Controller' : 'IdxController';
 
         //Action
-        $this->_action = !empty($splits[1]) ? $splits[1].'Action' : 'indexAction';
+        $this->_action = !empty($splits[1]) ? $splits[1].'Action' : 'idxAction';
 
         //Есть ли параметры и их значения
         if (!empty($splits[2])){
@@ -71,8 +71,16 @@ class FrontController {
         return $this->_action;
     }
 
+    public function getNav(){
+        return $this->_nav;
+    }
+
     public function getBody(){
         return $this->_body;
+    }
+
+    public function setNav($nav){
+        $this->_nav = $nav;
     }
 
     public function setBody($body){

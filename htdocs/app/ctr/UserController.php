@@ -16,15 +16,16 @@ class UserController implements IController{
 
         $fc->setBody($results);
     }
-    public function loginAction(){
+    public function incomAction(){
         $fc = FrontController::getInstance();
-        $model = new Model();
+        $fc->setNav("<a href='\'>Выход</a><a href='\user\setting'>Настройка</a><a class='selected' href='\user\incom'>Личный кабинет</a>");
 
-        $model->label = "Что бы зайти в личный кабинет необходимо ввести Ваш логин и пароль!";
-        $results = $model->render('../vws/viewAuth.php');
+        $model = new Model();
+        $model->name = "Somebody"; //"Добрый вечер, Вы в своем личном кабинете!!!";
+        $results = $model->render('../vws/viewIncom.php');
         $fc->setBody($results);
     }
-    public function registrAction(){
+    public function logoutAction(){
         $fc = FrontController::getInstance();
         $model = new Model();
         $model->label = "Для регистрации Вам необходимо заполнить регистрационую форму!";

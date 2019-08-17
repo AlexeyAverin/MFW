@@ -1,0 +1,1 @@
+<h3>Добрый вечер, <?php echo $this->name; /*echo " "; echo $this->secondName;*/ ?>!</h3>

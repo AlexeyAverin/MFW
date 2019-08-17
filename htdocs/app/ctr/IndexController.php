@@ -15,5 +15,16 @@ class IndexController implements IController{
         $results = $model->render('../vws/view.php'); // Дергается метод модели, вот вьюха заполни и верни
 
         $fc->setBody($results);
+
+        $resultNav = 'Добрый день!!!';
+        $fc->setNav($resultNav);
+    }
+
+    public function loginAction(){
+
+    }
+
+    public function registrAction(){
+        
     }
 }

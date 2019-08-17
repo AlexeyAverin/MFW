@@ -5,6 +5,21 @@
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+
+set_include_path(get_include_path() // Добавляем в переменную по умолчанию пути для поиска классов
+                    .PATH_SEPARATOR.'app/ctr'
+                    .PATH_SEPARATOR.'app/mdl'
+                    .PATH_SEPARATOR.'app/vws');
+function __autoload($class){
+    require_once($class.'.php');
+}
+
+$front = FrontController::getInstance();
+$front->route();
+
+
+
+
 echo "<!DOCTYPE html>
 <html>
     <head>
@@ -14,30 +29,19 @@ echo "<!DOCTYPE html>
     </head>
     <body>
 
-
         <header>
             <div class='logotip'>MFW</div>
             <div class='company'>Добрый день!!!</div>
-            <div class='menu'><a href='\user\\registr'>Регистрация</a><a href='\user\login'>Вход</a><a href='\'>Главная</a></div>
+            <div class='menu'>";
+echo $front->getNav();
+echo "
+            </div>
         </header>
+
         <div class='contents'>
             <div> </div>
-
         ";
 
-set_include_path(get_include_path() // Добавляем в переменную по умолчанию пути для поиска классов
-                    .PATH_SEPARATOR.'app/ctr'
-                    .PATH_SEPARATOR.'app/mdl'
-                    .PATH_SEPARATOR.'app/vws');
-
-
-
-function __autoload($class){
-    require_once($class.'.php');
-}
-
-$front = FrontController::getInstance();
-$front->route();
 echo $front->getBody();
 
 echo "
