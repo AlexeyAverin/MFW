@@ -18,13 +18,17 @@ class UserController implements IController{
     }
     public function incomAction(){
         $fc = FrontController::getInstance();
-        $fc->setNav("<a href='\'>Выход</a><a href='\user\setting'>Настройка</a><a class='selected' href='\user\incom'>Личный кабинет</a>");
-
         $model = new Model();
+
+        $model->label = '';
         $model->name = "Somebody"; //"Добрый вечер, Вы в своем личном кабинете!!!";
+        $model->indexNav = 1;
         $results = $model->render('../vws/viewIncom.php');
+        $resultsNav = $model->render('../vws/viewUserNav.php');
         $fc->setBody($results);
+        $fc->setNav($resultsNav);
     }
+
     public function logoutAction(){
         $fc = FrontController::getInstance();
         $model = new Model();
