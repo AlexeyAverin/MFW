@@ -30,8 +30,7 @@ class IdxController implements IController{
         $results = $model->render('../vws/viewAuth.php');
         $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
         $fc->setBody($results);
-
-        $fc->setNav("<a href='\idx\\registr'>Регистрация</a><a class='selected' href='\idx\login'>Вход</a><a href='\'>Главная</a>");
+        $fc->setNav($resultsNav);
     }
 
     public function authenticateAction(){
@@ -41,25 +40,26 @@ class IdxController implements IController{
         if ($_POST['login'] == 'Mickey' && $_POST['passw'] == '777'){
             $model->label = 'Добрый день!!! Добропожаловать!!!';
             $model->name = $_POST['login'];
-            $fc->setNav("<a href='\'>Выход</a><a href='\user\setting'>Настройка</a><a class='selected' href='\user\incom'>Личный кабинет</a>");
+            $model->indexNav = 1;
             $results = $model->render('../vws/viewIncom.php');
+            $resultsNav = $model->renderNav('../vws/viewUserNav.php');
         } else {
             $model->label = "Добрый день!!! Повторите!!!";
+            $model->indexNav = 2;
             $results = $model->render('../vws/viewAuth.php');
+            $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
         }
-        
-        $model->indexNav = 3;
-        $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
         $fc->setBody($results);
-        $fc->setNav($resultNav);
+        $fc->setNav($resultsNav);
     }
     public function registrAction(){
         $fc = FrontController::getInstance();
         $model = new Model();
         $model->label = "Для регистрации Вам необходимо заполнить регистрационую форму!";
+        $model->indexNav = 3;
         $results = $model->render('../vws/viewRegistr.php');
-        $fc->setNav("<a class='selected' href='\idx\\registr'>Регистрация</a><a href='\idx\login'>Вход</a><a href='\'>Главная</a>");
-
+        $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
         $fc->setBody($results);
+        $fc->setNav($resultsNav);
     }
 }

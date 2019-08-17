@@ -1,0 +1,2 @@
+<!--<h3>Добрый вечер!!!</h3>-->
+<a class='<?php echo $this->indexNavThree; ?>' href='\'>Выход</a><a class='<?php echo $this->indexNavTwo; ?>' href='\user\setting'>Настройка</a><a class='<?php echo $this->indexNavOne; ?>' href='\user\incom'>Личный кабинет</a>

@@ -21,8 +21,8 @@ header { width: var(--width-area); height: var(--height-header); margin: 0 auto;
 div.logotip { width: 85px; height: 100%; color: var(--color-text-menu); font-size: 30px; text-align: center; line-height: var(--height-header); float: left; background-color: var(--color-background-menu); }
 div.company { width: var(--width-company); height: 100%; font-size: 19px; color: var(--color-text-menu); text-align: center; line-height: var(--height-header); float: left; background-color: var(--color-background-menu); }
 div.menu { width: calc(var(--width-area) - (var(--width-company) + var(--width-logotip))); height: 100%; color: var(--color-text-menu); float: left; background-color: var(--color-background-menu); }
-div.menu a { width: var(--width-menu-item); height: 100%; font-size: 19px; color: var(--color-text-menu); border-left: 1px solid var(--color-text-menu); float: right; text-align: center; line-height: var(--height-header); display: inline-block; text-decoration: none; background-color: var(--color-background-menu); }
-div.menu a.selected { background-color: var(--color-background-contents); color: var(--color-background-menu); }
+.noselect { width: var(--width-menu-item); height: 100%; font-size: 19px; color: var(--color-text-menu); border-left: 1px solid var(--color-text-menu); float: right; text-align: center; line-height: var(--height-header); display: inline-block; text-decoration: none; background-color: var(--color-background-menu); }
+.selected { width: var(--width-menu-item); height: 100%; font-size: 19px; color: var(--color-background-menu); border-left: 1px solid var(--color-text-menu); float: right; text-align: center; line-height: var(--height-header); display: inline-block; text-decoration: none; background-color: var(--color-background-contents); }
 div.menu a:hover    { background-color: var(--color-text-menu); color: var(--color-background-menu); }
 
 

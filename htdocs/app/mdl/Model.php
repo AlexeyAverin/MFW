@@ -14,9 +14,9 @@ class Model{
         ob_start();
         
  
-        $this->indexNavOne = $this->indexNav == 1 ? 'selected' : ''; 
-        $this->indexNavTwo = $this->indexNav == 2 ? 'selected' : '';
-        $this->indexNavThree = $this->indexNav == 3 ? 'selected' : '';
+        $this->indexNavOne = $this->indexNav == 1 ? 'selected' : 'noselect'; 
+        $this->indexNavTwo = $this->indexNav == 2 ? 'selected' : 'noselect';
+        $this->indexNavThree = $this->indexNav == 3 ? 'selected' : 'noselect';
     
         include(dirname(__FILE__).'/'.$file);
 

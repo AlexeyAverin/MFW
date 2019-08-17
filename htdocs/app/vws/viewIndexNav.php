@@ -1,2 +1,2 @@
 <!--<h3>Добрый вечер!!!</h3>-->
-<a class='<?php echo $this->indexNavThree; ?>' href='\idx\\registr'>Регистрация</a><a class='<?php echo $this->indexNavTwo; ?>' href='\idx\login'>Вход</a><a class='<?php echo $this->indexNavOne; ?>' href='\'>Главная</a>
+<a class='<?php echo $this->indexNavThree; ?>' href='\idx\registr'>Регистрация</a><a class='<?php echo $this->indexNavTwo; ?>' href='\idx\login'>Вход</a><a class='<?php echo $this->indexNavOne; ?>' href='\'>Главная</a>
