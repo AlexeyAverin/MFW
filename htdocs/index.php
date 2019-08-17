@@ -14,8 +14,8 @@ function __autoload($class){
     require_once($class.'.php');
 }
 
-$front = FrontController::getInstance();
-$front->route();
+$front = FrontController::getInstance(); // После того как отработал __construct FrontController сюда возращается эеземпляр класса
+$front->route(); // Дергаем метод route()
 
 
 

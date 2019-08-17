@@ -4,19 +4,20 @@
 
 class IdxController implements IController{
     public function idxAction(){
-        $fc = FrontController::getInstance();
-        // Добавляем
+        $fc = FrontController::getInstance();           // Инициализируем FrontController, второй уже раз по этому вернеться его копия (Singleton patern)
         //$params = $fc-> getParams();
-        $model = new Model(); //Инициализируем модель
-        $model->name = "Quest";
+        $model = new Model();                           //Инициализируем модель
+        $model->label = 'Добрый вечер!!!';
+        $model->name = 'Guest';
+        $model->indexNav = 1;     
 
-        //$model->secondName = "Quest";        
         //$model->$params['name'];
-        $results = $model->render('../vws/view.php'); // Дергается метод модели, вот вьюха заполни и верни
-
+        $results = $model->render('../vws/view.php');   // Дергается метод модели, вот вьюха заполни и верни
         //$resultNav = 'Добрый день!!!';
-        $fc->setNav("<a href='\idx\\registr'>Регистрация</a><a href='\idx\login'>Вход</a><a class='selected' href='\'>Главная</a>");
-        $fc->setBody($results);
+
+        $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
+        $fc->setBody($results);                         // Возращает FrontController
+        $fc->setNav($resultsNav);
     }
 
 
@@ -24,9 +25,13 @@ class IdxController implements IController{
         $fc = FrontController::getInstance();
         $model = new Model();
         $model->label = "Что бы зайти в личный кабинет необходимо ввести Ваш логин и пароль!";
+        $model->name = 'Guest';
+        $model->indexNav = 2;
         $results = $model->render('../vws/viewAuth.php');
-        $fc->setNav("<a href='\idx\\registr'>Регистрация</a><a class='selected' href='\idx\login'>Вход</a><a href='\'>Главная</a>");
+        $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
         $fc->setBody($results);
+
+        $fc->setNav("<a href='\idx\\registr'>Регистрация</a><a class='selected' href='\idx\login'>Вход</a><a href='\'>Главная</a>");
     }
 
     public function authenticateAction(){
@@ -43,7 +48,10 @@ class IdxController implements IController{
             $results = $model->render('../vws/viewAuth.php');
         }
         
+        $model->indexNav = 3;
+        $resultsNav = $model->renderNav('../vws/viewIndexNav.php');
         $fc->setBody($results);
+        $fc->setNav($resultNav);
     }
     public function registrAction(){
         $fc = FrontController::getInstance();

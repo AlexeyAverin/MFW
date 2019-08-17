@@ -8,7 +8,7 @@ class FrontController {
 
     public static function getInstance() {
         if (!(self::$_instance instanceof self))
-            self::$_instance = new self();
+            self::$_instance = new self(); // Вызываем конструктор __construct
         return self::$_instance;
     }
 
@@ -39,14 +39,14 @@ class FrontController {
     }
 
     public function route(){
-        if (class_exists($this->getController())){ // Проверка существование класса
-            $rc = new ReflectionClass($this->getController()); // Если класс существует, тогда получаем копию его Reflection
-            if ($rc->implementsInterface('IController')){ // Реализует данный класс ли интерфейс IController
-                if ($rc->hasMethod($this->getAction())){ // Реализован ли метод
-                    $controller = $rc->newInstance(); // Создаем экземпляр класса
-                    $method = $rc->getMethod($this->getAction()); // Выбираем метод
-                    $method->invoke($controller); // Исполни метод на этом самом контролере
-                }else{ // Если метод нереализован тогда выбрасываем исключение
+        if (class_exists($this->getController())){                  // Проверка существование класса
+            $rc = new ReflectionClass($this->getController());      // Если класс существует, тогда получаем копию его Reflection
+            if ($rc->implementsInterface('IController')){           // Реализует данный класс ли интерфейс IController
+                if ($rc->hasMethod($this->getAction())){            // Реализован ли метод
+                    $controller = $rc->newInstance();               // Создаем экземпляр класса типа контроллера, это делает Reflection
+                    $method = $rc->getMethod($this->getAction());   // Выбираем метод
+                    $method->invoke($controller);                   // Исполни метод на этом самом контролере
+                }else{                                              // Если метод нереализован тогда выбрасываем исключение
 
                     throw new Exception("Action");
                 }
